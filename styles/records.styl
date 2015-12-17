@@ -1,10 +1,49 @@
+$bg-color = #505b62
+
+
+$record-navigation-height = 60px
+$record-navigation-padding-top = 15px
+$record-navigation-padding-bottom = 5px
+$record-navigation-bg-color = #ffffff
+$record-navigation-opacity = 0.8
+$record-navigation-list-item-font-size = 20px
+$record-navigation-list-item-font-weight = 200
+$record-navigation-list-item-color = #444c51
+
+$record-information-height = 50px
+$record-information-margin-left = 30px
+
+$record-information-title-font-size = 26px
+$record-information-title-color-default = #ffffff
+$record-information-title-color-invert = #444c51
+$record-information-emotion-font-size = 24px
+
+$record-background-opacity = 0.5
+$record-background-bg-color = #f5f5f5
+
+$record-category-icon-bg-color = #dee1e3
+$record-category-icon-border-color = #ffffff
+
+$record-people-height = 160px
+$record-people-bg-height = 300px
+
+$record-places-height = 160px
+$record-places-bg-height = 350px
+
+$record-photo-height = 160px
+$record-photo-bg-height = 350px
+
+$record-video-height = 160px
+$record-video-bg-height = 400px
+
+$record-music-height = 160px
+$record-music-bg-height = 400px
+
 body
-  background #505b62
+  background $bg-color
 
 .uk-record-content
   margin-bottom 50px
-  background #505b62
-
 
 .uk-record-block
   position relative
@@ -18,9 +57,9 @@ body
       display none
     .uk-record-information
       >.record-title
-        color #444c51
+        color $record-information-title-color-invert
       >.record-emotion
-        color #444c51
+        color $record-information-title-color-invert
     >.uk-record-information
       >.record-emotion
         > svg
@@ -45,17 +84,15 @@ body
     iframe
       height calc("100% - 60px")
 
-
-
   >.uk-record-information
     position absolute
-    bottom 80px
-    height 50px
-    margin-left 30px
+    bottom calc($record-information-height + 30px)
+    height $record-information-height
+    margin-left $record-information-margin-left
 
     >.record-title
-      font-size 26px
-      color #ffffff
+      font-size $record-information-title-font-size
+      color $record-information-title-color-default
       margin-bottom 15px
 
     >.record-emotion
@@ -77,13 +114,10 @@ body
   &.uk-record-background
     display: inline-block
     vertical-align middle
-    height 100%
     > img
       vertical-align middle
-      width 100%
-      opacity 0.5
-      height 100%
-      box-sizing border-box
+      size 100%
+      opacity $record-background-opacity
 
   // category
   >.uk-record-category
@@ -91,7 +125,7 @@ body
     display inline-block
     vertical-align middle
     z-index 1
-    background-color #dee1e3
+    background-color $record-category-icon-bg-color
     size 90px
     bottom 40px
     right 10px
@@ -99,7 +133,7 @@ body
     overflow hidden
 
     &.uk-record-category-has-icon
-      border 1px solid #ffffff
+      border 1px solid $record-category-icon-border-color
       img
         position relative
         display block
@@ -112,56 +146,58 @@ body
 
   // people
   &.uk-record-people
-    height 300px
+    height $record-people-bg-height
     &:not(.uk-record-background)
-      background-color #f5f5f5
-      height 160px
+      background-color $record-background-bg-color
+      height $record-people-height
 
   &.uk-record-places
-    height 350px
+    height $record-places-bg-height
     &:not(.uk-record-background)
-      background-color #f5f5f5
-      height 160px
+      background-color $record-background-bg-color
+      height $record-places-height
 
   &.uk-record-photo
-    height 350px
+    height $record-photo-bg-height
     &:not(.uk-record-background)
-      background-color #f5f5f5
-      height 160px
+      background-color $record-background-bg-color
+      height $record-photo-height
 
   &.uk-record-video
-    height 400px
+    height $record-video-bg-height
     &:not(.uk-record-background)
-      background-color #f5f5f5
-      height 160px
+      background-color $record-background-bg-color
+      height $record-video-height
 
   &.uk-record-music
-    height 400px
+    height $record-music-bg-height
     &:not(.uk-record-background)
-      background-color #f5f5f5
-      height 160px
+      background-color $record-background-bg-color
+      height $record-music-height
 
   &.uk-record-eat
     height 400px
     &:not(.uk-record-background)
-      background-color #f5f5f5
+      background-color $record-background-bg-color
       height 160px
 
 
+  // record navigation
   >.uk-subnav
     position absolute
     bottom 0
     margin 0
-    height 60px
-    background-color #ffffff
+    height $record-navigation-height
+    background-color $record-navigation-bg-color
+    opacity $record-navigation-opacity
 
     li
       margin 0
       padding 0
       text-align center
       text-transform capitalize
-      padding-top 15px
-      padding-bottom 5px
+      padding-top $record-navigation-padding-top
+      padding-bottom $record-navigation-padding-bottom
       cursor pointer
 
       &:before
@@ -172,11 +208,11 @@ body
         opacity 0.8
       a
         position relative
-        color #444c51
-        font-size 20px
-        height 40px
-        line-height 40px
-        font-weight 200
+        color $record-navigation-list-item-color
+        font-size $record-navigation-list-item-font-size
+        height calc($record-navigation-height - $record-navigation-padding-top - $record-navigation-padding-bottom)
+        line-height calc($record-navigation-height - $record-navigation-padding-top - $record-navigation-padding-bottom)
+        font-weight $record-navigation-list-item-font-weight
 
         &:before
           content " "
